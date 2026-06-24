@@ -58,9 +58,8 @@ class User(BaseModel):
 
 
 def checker_json(file: str):
-    file_dict = json.loads(file)
-    if User(**file_dict):
-        return file
+    User.model_validate_json(file)
+    return file
 
 try:
     print(checker_json(json_input))
