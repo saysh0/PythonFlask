@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field, EmailStr, model_validator
+        from pydantic import BaseModel, Field, EmailStr, model_validator
 import json
 
 json_input = """{
@@ -44,7 +44,7 @@ class Address(BaseModel):
 
 class User(BaseModel):
     name: str = Field(min_length=2, pattern=r"^[a-zA-Zа-яА-ЯёЁ ]+$")
-    age: int = Field(gt=0, lt=120)
+    age: int = Field(gt=0, le=120)
     email: EmailStr
     is_employed: bool
     address: Address
